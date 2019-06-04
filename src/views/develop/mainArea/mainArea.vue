@@ -1,6 +1,13 @@
 <template>
-  <div style="height:100%;width:100%;position: relative;" @dragover="dragover($event)" @drop="drop($event)" ref="mainArea">
-        <component v-for="(item,index) in list" :key="item.uuid" :is="item.widgetsType" ref = 'widget' :id = 'item.uuid'></component>
+  <div style="height:100%;width:100%;position: relative;"
+       @dragover="dragover($event)"
+       @drop="drop($event)"
+       ref="mainArea">
+    <component v-for="(item) in list"
+               :key="item.uuid"
+               :is="item.widgetsType"
+               ref='widget'
+               :id='item.uuid'></component>
   </div>
 </template>
 <script>
@@ -11,8 +18,8 @@ export default {
 </script>
 
 <style lang="less">
-.widget{
+.widget {
   position: absolute;
-  background:red
+  background: red;
 }
 </style>

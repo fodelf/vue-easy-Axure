@@ -6,7 +6,7 @@ export default {
     return {
       list: [],
       selectId: '',
-      cache: { }
+      cache: {}
     }
   },
   components: {

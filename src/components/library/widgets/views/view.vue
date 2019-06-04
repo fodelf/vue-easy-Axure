@@ -1,5 +1,5 @@
 <template>
-  <div ref="widget" ></div>
+  <div ref="widget"></div>
 </template>
 <script>
 import eyDecorator from '@/components/library/eyDecorator/eyDecorator.js'
@@ -20,10 +20,10 @@ export default {
       return this.$parent
     },
     // 应用状态初始化
-    applicationInit: function () {},
-    delvelopmentInit: function () {},
-    previewApp: function () {},
-    repaint: function () {},
+    applicationInit: function () { },
+    delvelopmentInit: function () { },
+    previewApp: function () { },
+    repaint: function () { },
     setSelectedClass: function () {
       $('.ey-selected').removeClass('ey-selected')
       this._Template.addClass('ey-selected')
