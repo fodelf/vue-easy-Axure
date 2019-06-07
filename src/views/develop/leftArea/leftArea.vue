@@ -1,10 +1,21 @@
+<!--
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-07 08:30:23
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 16:39:16
+ -->
 <template>
   <div>
     <div style="height:50%"> 这是上面</div>
     <div style="height:50%">
-       <ul>
-         <li draggable="true" @dragstart="dragstart($event,item)" v-for="(item,index) in widgets" :key="index">{{item.widgetsType}}</li>
-       </ul>
+      <ul>
+        <li draggable="true"
+            @dragstart="dragstart($event,item)"
+            v-for="(item,index) in widgets"
+            :key="index">{{item.widgetsType}}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,7 +30,7 @@ export default {
   },
   methods: {
     dragstart (e, item) {
-    	  item = Object.assign({ 'uuid': uuid(32) }, item)
+      item = Object.assign({ 'uuid': uuid(32) }, item)
       e.dataTransfer.setData('data', JSON.stringify(item))
     }
   }
@@ -27,5 +38,4 @@ export default {
 </script>
 
 <style lang="less">
-
 </style>

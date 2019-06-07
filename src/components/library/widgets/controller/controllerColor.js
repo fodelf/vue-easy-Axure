@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2017-05-07 11:03:27
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 15:49:00
+ */
 /*!
 * Instruction : 颜色编辑器
 *
@@ -9,13 +17,13 @@
   'use strict'
 
   var ControllerColor = function (attribute) {
-    	// 扩展事件属性
+    // 扩展事件属性
     ey.extendProperty(this, 'controller', 'widget', [attribute])
     // dom对象
     this._domTemplate = $("<div class='ey-controllerInput ey-attributeLine'>" +
-							"<label class='ey-controllerLabel'></label>" +
-							"<div class='ey-controllerColor'/></div>" +
-							'</div>')
+      "<label class='ey-controllerLabel'></label>" +
+      "<div class='ey-controllerColor'/></div>" +
+      '</div>')
     this._content = $("<div><p>常用颜色</p><ul class='clearfix'></ul><p>自定义颜色</p><ul class='clearfix'></ul><div>")
     this._commonColors = [
       { 'full': '#209c91', 'empty': 'rgba(32,156,146,.3)' },
@@ -58,7 +66,7 @@
   ey.extendFun(ControllerColor, 'controller', 'widget')
   // 扩展当前组件
   ey.expandPrototype(ControllerColor, {
-    	// dom对象初始化
+    // dom对象初始化
     domInit: function () {
       var currentObj = this
       var dom = this._domTemplate
@@ -116,6 +124,6 @@
     }
   })
   ey.widget.controllerColor = function (attribute) {
-    	return new ControllerColor(attribute)
+    return new ControllerColor(attribute)
   }
 })($, ey)

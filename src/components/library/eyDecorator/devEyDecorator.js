@@ -1,11 +1,11 @@
-/*!
-* Instruction :装饰器基类，在编辑态时给组件对象添加事件，应用状态不存在
-*
-* Author : 吴文周
-*
-* Date: 2017-03-20
-*/
-
+/*
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2017-05-07 11:03:32
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 15:59:49
+ */
 const yBase = 82
 
 const xBase = 16

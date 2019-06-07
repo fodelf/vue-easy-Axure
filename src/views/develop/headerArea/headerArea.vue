@@ -2,19 +2,23 @@
   <div>
     <div style=" float:left;">
       <label>上</label>
-      <input v-model="top" @change="changeTop()">
+      <input v-model="top"
+             @change="changeTop()">
     </div>
     <div style=" float:left;">
       <label>左</label>
-      <input v-model="left" @change="changeleft()">
+      <input v-model="left"
+             @change="changeleft()">
     </div>
     <div style=" float:left;">
       <label>高</label>
-      <input v-model="height" @change="changeHeight()">
+      <input v-model="height"
+             @change="changeHeight()">
     </div>
     <div style=" float:left;">
       <label>宽</label>
-      <input v-model="width" @change="changeWidth()">
+      <input v-model="width"
+             @change="changeWidth()">
     </div>
   </div>
 </template>
@@ -91,7 +95,7 @@ export default {
       // return this._getChange("_top", unit);
     }
   },
-  mounted () {}
+  mounted () { }
 }
 </script>
 

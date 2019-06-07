@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-05 23:04:58
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 16:51:21
+ */
 const webpack = require('webpack')
 const path = require('path')
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
@@ -38,7 +46,7 @@ module.exports = {
       // page 的入口
       entry: 'src/pages/develop/main.js',
       // 模板来源
-      template: 'public/html/develop.html',
+      template: 'src/pages/develop/develop.html',
       // 在 dist/index.html 的输出
       filename: 'develop.html',
       // 当使用 title 选项时，
@@ -52,7 +60,7 @@ module.exports = {
       // page 的入口
       entry: 'src/pages/preview/main.js',
       // 模板来源
-      template: 'public/html/preview.html',
+      template: 'src/pages/preview/preview.html',
       // 在 dist/index.html 的输出
       filename: 'preview.html',
       // 当使用 title 选项时，
@@ -69,11 +77,11 @@ module.exports = {
   css: {
     loaderOptions: {
       // 给 sass-loader 传递选项
-      sass: {
-        // @/ 是 src/ 的别名
-        // 所以这里假设你有 `src/variables.scss` 这个文件
-        data: `@import "@/assets/css/compute.scss";`
-      }
+      // sass: {
+      //   // @/ 是 src/ 的别名
+      //   // 所以这里假设你有 `src/variables.scss` 这个文件
+      //   data: `@import "@/assets/css/compute.scss";`
+      // }
     }
   },
   configureWebpack: config => {

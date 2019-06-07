@@ -1,11 +1,20 @@
+<!--
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-08 12:26:29
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 16:37:51
+ -->
 <template>
   <div ref="widget"></div>
 </template>
 <script>
-import eyDecorator from '@/components/library/eyDecorator/eyDecorator.js'
+import { debounce } from 'lodash'
+import devEyDecorator from '@/components/library/eyDecorator/devEyDecorator.js'
 export default {
   name: 'view',
-
+  mixins: [devEyDecorator],
   data () {
     return {
       height: 0,
@@ -25,8 +34,8 @@ export default {
     previewApp: function () { },
     repaint: function () { },
     setSelectedClass: function () {
-      $('.ey-selected').removeClass('ey-selected')
-      this._Template.addClass('ey-selected')
+      // $('.ey-selected').removeClass('ey-selected')
+      // this._Template.addClass('ey-selected')
     },
     // 获取jq对象
     getDom: function () {
@@ -100,12 +109,12 @@ export default {
         var attrVal = this[type]
       }
       // 如果值相同不执行
-      if (val == attrVal) {
+      if (val === attrVal) {
         return
       }
       var value
       var valStr = val + ''
-      if (valStr.substr(-3) == 'rem') {
+      if (valStr.substr(-3) === 'rem') {
         this[type] = val
         value = val
       } else {
@@ -119,7 +128,7 @@ export default {
     // 获取变化的属性值
     _getChange: function (type, unit) {
       // 默认为px像素值
-      if (unit == 'px') {
+      if (unit === 'px') {
         return parseFloat(this._remToPx(this[type]))
       } else {
         return this[type]
@@ -127,12 +136,15 @@ export default {
     }
   },
   mounted () {
-    let module = this._GLOBAL['clientMessage']['module']
-    switch (module) {
-      case 'develop':
-        eyDecorator(this)
-        break
-    }
+    this.__resizeHandler = debounce(() => {
+      if (this.chart) {
+        this.chart.resize()
+      }
+    }, 100)
+    window.addEventListener('resize', this.__resizeHandler)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.__resizeHandler)
   }
 }
 </script>

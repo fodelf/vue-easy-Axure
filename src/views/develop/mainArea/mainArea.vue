@@ -1,3 +1,11 @@
+<!--
+ * @Description:主区域模块
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-07 08:28:34
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 15:56:59
+ -->
 <template>
   <div style="height:100%;width:100%;position: relative;"
        @dragover="dragover($event)"
@@ -17,9 +25,6 @@ export default {
 }
 </script>
 
-<style lang="less">
-.widget {
-  position: absolute;
-  background: red;
-}
+ <style rel="stylesheet/scss"  lang="scss" scoped>
+@import "./mainArea.scss";
 </style>

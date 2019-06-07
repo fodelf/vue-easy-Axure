@@ -1,15 +1,16 @@
-/*!
-* Instruction :容器装饰器,带有子组件的装饰器
-*
-* Author : 吴文周
-*
-* Date: 2017-03-22
-*/
+/*
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2017-05-07 11:03:32
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 15:59:40
+ */
 (function ($, ey) {
   'use strict'
 
   var EyGroupDecorator = function (widget) {
-    	// 基类装饰器工厂属性继承
+    // 基类装饰器工厂属性继承
     ey.extendProperty(this, 'eyDecoratorStructure', 'widget', [widget])
     // 装饰行为
     function decorateAction () {
@@ -49,8 +50,8 @@
         for (var i = 0, len = attributes.length; i < len; i++) {
           // 二维数组属性遍历
           var attributeTypes = attributes[i]
-          //					//公共数据属性添加？  这样虽然便捷是否有其他问题？
-          //					if(attributeTypes.level){
+          // 公共数据属性添加？  这样虽然便捷是否有其他问题？
+          //  if(attributeTypes.level){
           //						//数据属性基础通用添加
           //						if(attributeTypes.level == "baseData"){
           //							attributeTypes.attributes = configureCharts.concat(attributeTypes.attributes);
@@ -61,7 +62,7 @@
             // 有对应属性方法时设置属性值没有不需要设置
             if (attribute.functionName) {
               var propName = attribute.functionName.replace(/^\w/g, function (s) {
-				   	 				return s.toUpperCase()
+                return s.toUpperCase()
               })
               var setFun = 'set' + propName
               var defaultValue = attribute.defaultValue
@@ -87,6 +88,6 @@
   }
 
   ey.widget.eyGroupDecorator = function (widget) {
-    	return new EyGroupDecorator(widget)
+    return new EyGroupDecorator(widget)
   }
 })($, ey)
