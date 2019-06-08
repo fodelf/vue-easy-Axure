@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-06-08 18:47:55
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 21:30:16
+ * @LastEditTime: 2019-06-08 22:47:30
  */
 
 const config = {
@@ -14,8 +14,8 @@ const config = {
     'name': '样式',
     'values': [
       {
-        'name': '字体：',
-        'type': 'controllerSelect',
+        'controllerName': '布局：',
+        'controllerType': 'controllerSelect',
         'functionName': 'setLayout',
         'items': [
           {

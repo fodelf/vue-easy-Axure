@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:32:19
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 21:33:16
+ * @LastEditTime: 2019-06-08 22:30:48
  */
 const configModulesFiles = require.context('@/components/library/widgets/configs', false, /\.js$/)
 const configModules = configModulesFiles.keys().reduce((configModules, modulePath) => {
@@ -25,12 +25,6 @@ const viewModules = viewModulesFiles.keys().reduce((viewModules, modulePath) => 
 console.log(viewModules)
 export default {
   name: 'rightArea',
-  props: {
-    widgetType: {
-      type: String,
-      default: ''
-    }
-  },
   data () {
     return {
       configTabs: {},

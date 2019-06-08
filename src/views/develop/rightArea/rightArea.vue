@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:30:30
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 21:32:50
+ * @LastEditTime: 2019-06-08 22:50:49
  -->
 <template>
   <div>
@@ -15,7 +15,16 @@
                    v-for="(item,index) in configTabs"
                    :label="item.name"
                    :name="index">
-        "xxx"
+        <el-form ref="form"
+                 :model="form"
+                 label-width="80px">
+          <component v-for="(childItem) in item.values"
+                     :key="childItem.controllerName"
+                     :is="childItem.controllerType"
+                     :items="childItem.items"
+                     :label="childItem.controllerName"
+                     ref='widget'></component>
+        </el-form>
       </el-tab-pane>
     </el-tabs>
   </div>
