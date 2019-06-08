@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:30:30
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 22:50:49
+ * @LastEditTime: 2019-06-08 23:14:23
  -->
 <template>
   <div>
@@ -21,8 +21,7 @@
           <component v-for="(childItem) in item.values"
                      :key="childItem.controllerName"
                      :is="childItem.controllerType"
-                     :items="childItem.items"
-                     :label="childItem.controllerName"
+                     :mes="childItem"
                      ref='widget'></component>
         </el-form>
       </el-tab-pane>

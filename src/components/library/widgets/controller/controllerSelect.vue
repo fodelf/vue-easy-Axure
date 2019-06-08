@@ -4,14 +4,14 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-14 23:33:19
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 22:42:04
+ * @LastEditTime: 2019-06-08 23:16:20
  -->
 
 <template>
-  <el-form-item :label="label">
+  <el-form-item :label="mes.controllerName">
     <el-select v-model="value"
                @change="changeValue">
-      <el-option v-for="(item,index) in items"
+      <el-option v-for="(item,index) in mes.items"
                  :label="item.label"
                  :value="item.value"
                  :key="index">
@@ -27,26 +27,22 @@ export default {
   data () {
     return {
       value: '',
-      functionName: ''
+      functionName: this.mes.functionName
     }
   },
   props: {
-    items: {
+    mes: {
       type: Object,
       default: function () {
-        return []
+        return {}
       }
-    },
-    label: {
-      type: String,
-      default: ''
     }
   },
   methods: {
 
   },
   created () {
-    this.value = this.items[0]['value']
+    this.value = this.mes.items[0]['value']
   }
 }
 </script>
