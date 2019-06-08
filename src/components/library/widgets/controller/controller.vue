@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-14 23:33:19
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 15:48:51
+ * @LastEditTime: 2019-06-08 20:22:59
  -->
 <template>
   <div ref="controller"></div>
@@ -19,18 +19,15 @@ export default {
     }
   },
   methods: {
-    _changeValue (value) {
+    changeValue (value) {
       let message = {
         'value': value,
         'functionName': this.functionName
       }
       this.$emit('changeValue', message)
     },
-    setValue (functionName) {
-      this._changeValue('setTop', this.value)
-    },
-    getValue () {
-
+    setValue (value) {
+      this.value = value
     }
   },
   mounted () {

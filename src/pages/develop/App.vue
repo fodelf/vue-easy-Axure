@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-06 08:54:53
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 18:33:17
+ * @LastEditTime: 2019-06-08 21:19:55
  -->
 <template>
   <div id="app"
@@ -16,7 +16,8 @@
       </el-header>
       <el-container>
         <el-aside v-show="isShowLeft">
-          <leftArea ref='leftArea'></leftArea>
+          <leftArea ref='leftArea'
+                    :widgetType=widgetType></leftArea>
         </el-aside>
         <el-main>
           <mainArea ref='mainArea'
@@ -25,6 +26,7 @@
         <el-aside v-show="isShowRight">
           <rightArea ref='rightArea'
                      @changeValue='changeValue'
+                     :widgetType=widgetType
                      :widgetPorperties=widgetPorperties></rightArea>
         </el-aside>
       </el-container>
@@ -46,17 +48,15 @@ export default {
   },
   data () {
     return {
-      widgetPorperties: {
-        styleList: []
-      },
+      widgetType: '',
       cache: {},
       isShowLeft: true,
       isShowRight: true
     }
   },
   methods: {
-    append () {
-
+    append (mes) {
+      this.$refs.rightArea.changeWidgetType(mes)
     },
     changeValue (mes) {
       this.$refs.mainArea.changeValue(mes)

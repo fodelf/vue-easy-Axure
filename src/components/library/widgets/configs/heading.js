@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-08 22:37:50
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 20:09:55
+ * @LastEditTime: 2019-06-08 21:12:54
  */
 const config = {
   'widgetName': 'head',

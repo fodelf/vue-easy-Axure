@@ -4,8 +4,9 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-06-03 23:27:45
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 14:23:15
+ * @LastEditTime: 2019-06-08 18:22:05
  */
+
 export default {
   data () {
     return {
@@ -24,15 +25,14 @@ export default {
       let widget = this
       widgetDom.onmousemove = function (event) {
         let e = event || window.event
-        let id = e.currentTarget.id
         let mainArea = widget.getParent()
         // let RootGroup = mainArea.getListenerChirldren()[0]
         let RootGroup = mainArea.getRootGroup()
         // let limit = parseFloat(ey.callFunction(this, 'view', 'widget', '_remToPx', 0.4, 'return'))
         // let RootGroupWidth = mainArea.getWidth()
-        let childWidget = mainArea.getWidgetById(id)
-        let childAbsoluteX = childWidget.getLeft('px') + 300
-        let childAbsoluteY = childWidget.getTop('px') + 60
+        let childWidget = widget
+        let childAbsoluteX = childWidget.getLeft('px') + 320
+        let childAbsoluteY = childWidget.getTop('px') + 120
         let childWidth = childWidget.getWidth('px')
         let childHeight = childWidget.getHeight('px')
         let childAbsoluteRight = childAbsoluteX + childWidth
@@ -49,7 +49,7 @@ export default {
         let rArea = (childAbsoluteRight - e.pageX) < mousePesponse
         let tArea = (e.pageY - childAbsoluteY + scollT) < mousePesponse
         let bArea = (childAbsoluteBottom - e.pageY - scollT) < mousePesponse
-        // setMouseStyle(lArea, rArea, tArea, bArea, childWidget)
+        widget.$_setMouseStyle(lArea, rArea, tArea, bArea, childWidget)
         // 鼠标按下拖拽设置
         widgetDom.onmousedown = function (event) {
           // 鼠标按下时取出虚线
@@ -113,11 +113,13 @@ export default {
             // if (width > (RootGroupWidth - limit)) {
             // return
             // }
+            widget.$_setMouseStyle(lArea, rArea, tArea, bArea, childWidget)
             console.log(changeType)
             childWidget.setWidth(width)
             childWidget.setHeight(height)
             childWidget.setLeft(left)
             childWidget.setTop(top)
+
             // 改变控件时抛出事件
             // let changeWidget = ey.eventLibrary.eventBase('changeWidget')
 
@@ -130,14 +132,32 @@ export default {
           // 关闭鼠标功能
           RootGroup.onmouseup = function (event) {
             RootGroup.onmousemove = RootGroup.onmouseup = RootGroup.onmouseleave = null
-            // widget._closeFun(RootGroup, widget, widgetDom)
           }
           RootGroup.onmouseleave = function () {
             RootGroup.onmousemove = RootGroup.onmouseup = RootGroup.onmouseleave = null
-            // widget._closeFun(RootGroup, widget, widgetDom)
           }
         }
       }
+    },
+    $_setMouseStyle (lArea, rArea, tArea, bArea, childWidget) {
+      // 左侧范围修改样式
+      if (lArea) { childWidget.setMouseStyle('w-resize') }
+      // 右侧范围
+      if (rArea) { childWidget.setMouseStyle('e-resize') }
+      // 上侧范围
+      if (tArea) { childWidget.setMouseStyle('n-resize') }
+      // 下侧范围
+      if (bArea) { childWidget.setMouseStyle('s-resize') }
+      // 左上范围
+      if (lArea && tArea) { childWidget.setMouseStyle('nw-resize') }
+      // 右上范围
+      if (rArea && tArea) { childWidget.setMouseStyle('pointer') }
+      // 左下范围
+      if (lArea && bArea) { childWidget.setMouseStyle('sw-resize') }
+      // 右下范围
+      if (rArea && bArea) { childWidget.setMouseStyle('se-resize') }
+      // 中间范围
+      if (!lArea && !rArea && !tArea && !bArea) { childWidget.setMouseStyle('move') }
     }
   }
 }

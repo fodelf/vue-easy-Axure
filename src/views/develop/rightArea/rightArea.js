@@ -4,37 +4,47 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:32:19
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 15:44:14
+ * @LastEditTime: 2019-06-08 21:33:16
  */
-import controllerStyleBase from '@/components/library/widgets/controller/controllerStyleBase.vue'
-
+const configModulesFiles = require.context('@/components/library/widgets/configs', false, /\.js$/)
+const configModules = configModulesFiles.keys().reduce((configModules, modulePath) => {
+  // set './app.js' => 'app'
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = configModulesFiles(modulePath)
+  configModules[moduleName] = value.default
+  return configModules
+}, {})
+const viewModulesFiles = require.context('@/components/library/widgets/controller', false, /\.vue$/)
+const viewModules = viewModulesFiles.keys().reduce((viewModules, modulePath) => {
+  // set './app.js' => 'app'
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+  const value = viewModulesFiles(modulePath)
+  viewModules[moduleName] = value.default
+  return viewModules
+}, {})
+console.log(viewModules)
 export default {
-  name: 'mainArea',
+  name: 'rightArea',
   props: {
-    widgetPorperties: {
-      type: Object,
-      default: function () {
-        return {}
-      }
-    },
-    sytleList: {
-      type: Object,
-      default: function () {
-        return {}
-      }
+    widgetType: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {
-      selectId: '',
-      cache: {},
-      isShowStyle: true
+      configTabs: {},
+      tabsValue: '0'
     }
   },
-  components: {
-    controllerStyleBase
-  },
+  components: viewModules,
   methods: {
-
+    changeWidgetType (mes) {
+      this.configTabs = configModules[mes]['attributes']
+      console.log(this.configTabs)
+    }
+  },
+  created () {
+    this.changeWidgetType('mainArea')
   }
 }

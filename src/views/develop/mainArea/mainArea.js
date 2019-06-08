@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 19:58:27
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 12:44:12
+ * @LastEditTime: 2019-06-08 21:21:01
  */
 
 import heading from '@/components/library/widgets/views/heading/heading.vue'
@@ -62,7 +62,10 @@ export default {
       console.log('1')
       this.cache[widget.uuid] = this.list.length - 1
       this.selectId = widget.uuid
-      // this.$emit('append', widget)
+      this.$emit('append', widget.widgetsType)
     }
+  },
+  created () {
+    // this.$emit('append', 'mainArea')
   }
 }

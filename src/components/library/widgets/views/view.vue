@@ -4,10 +4,11 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-08 12:26:29
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 14:21:32
+ * @LastEditTime: 2019-06-08 18:06:33
  -->
 <template>
-  <div ref="widget"></div>
+  <div class="widget"
+       ref="widget"></div>
 </template>
 <script>
 import { debounce } from 'lodash'
@@ -82,7 +83,8 @@ export default {
     },
     // 设置鼠标样式
     setMouseStyle: function (mouseStyle) {
-      this._Template.css('cursor', mouseStyle)
+      this.cursor = mouseStyle
+      // .this._Template.css('cursor', mouseStyle)
     },
     // px值转rem
     _pxToRem: function (val) {
@@ -152,6 +154,9 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
+<style lang="scss" >
+.widget {
+  background: red;
+  position: absolute;
+}
 </style>
