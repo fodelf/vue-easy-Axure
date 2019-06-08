@@ -4,17 +4,18 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 19:58:27
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 16:39:45
+ * @LastEditTime: 2019-06-08 12:44:12
  */
-import heading from '@/components/library/widgets/views/heading/heading.vue'
 
+import heading from '@/components/library/widgets/views/heading/heading.vue'
 export default {
   name: 'mainArea',
   data () {
     return {
       list: [],
       selectId: '',
-      cache: {}
+      cache: {},
+      id: ''
     }
   },
   components: {
@@ -25,6 +26,7 @@ export default {
      * @name:changeValue
      * @description:
      * @param {type}:
+     * @return {type}:
      */
     changeValue (mes) {
       let index = this.cache[this.selectId]
@@ -57,9 +59,10 @@ export default {
       let data = e.dataTransfer.getData('data')
       let widget = JSON.parse(data)
       this.list.push(widget)
+      console.log('1')
       this.cache[widget.uuid] = this.list.length - 1
       this.selectId = widget.uuid
-      this.$emit('append', widget)
+      // this.$emit('append', widget)
     }
   }
 }

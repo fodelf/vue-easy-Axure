@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-06-03 23:27:45
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 14:19:53
+ * @LastEditTime: 2019-06-08 14:23:15
  */
 export default {
   data () {
@@ -129,10 +129,12 @@ export default {
           }
           // 关闭鼠标功能
           RootGroup.onmouseup = function (event) {
-            widget._closeFun(RootGroup, widget, widgetDom)
+            RootGroup.onmousemove = RootGroup.onmouseup = RootGroup.onmouseleave = null
+            // widget._closeFun(RootGroup, widget, widgetDom)
           }
           RootGroup.onmouseleave = function () {
-            widget._closeFun(RootGroup, widget, widgetDom)
+            RootGroup.onmousemove = RootGroup.onmouseup = RootGroup.onmouseleave = null
+            // widget._closeFun(RootGroup, widget, widgetDom)
           }
         }
       }

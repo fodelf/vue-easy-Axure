@@ -4,17 +4,18 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-08 12:26:29
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 16:37:51
+ * @LastEditTime: 2019-06-08 14:21:32
  -->
 <template>
   <div ref="widget"></div>
 </template>
 <script>
 import { debounce } from 'lodash'
-import devEyDecorator from '@/components/library/eyDecorator/devEyDecorator.js'
+import decorator from '@/components/library/eyDecorator/decorator.js'
 export default {
   name: 'view',
-  mixins: [devEyDecorator],
+  // 应对多种场景的装饰行为用数组比较合适
+  mixins: [decorator],
   data () {
     return {
       height: 0,
@@ -145,6 +146,9 @@ export default {
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.__resizeHandler)
+  },
+  create () {
+    console.log('v')
   }
 }
 </script>

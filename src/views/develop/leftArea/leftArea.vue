@@ -4,38 +4,30 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:30:23
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 16:39:16
+ * @LastEditTime: 2019-06-08 10:51:29
  -->
 <template>
-  <div>
-    <div style="height:50%"> 这是上面</div>
-    <div style="height:50%">
+  <div class="leftArea">
+    <el-row style="height:50%">
+
+    </el-row>
+    <el-row style="height:50%">
       <ul>
         <li draggable="true"
             @dragstart="dragstart($event,item)"
             v-for="(item,index) in widgets"
             :key="index">{{item.widgetsType}}</li>
       </ul>
-    </div>
+    </el-row>
   </div>
 </template>
 <script>
-import { uuid } from '@/utils/uuid.js'
+import leftArea from '@/views/develop/leftArea/leftArea.js'
 export default {
-  name: 'leftArea',
-  data () {
-    return {
-      widgets: [{ 'widgetsType': 'heading' }]
-    }
-  },
-  methods: {
-    dragstart (e, item) {
-      item = Object.assign({ 'uuid': uuid(32) }, item)
-      e.dataTransfer.setData('data', JSON.stringify(item))
-    }
-  }
+  ...leftArea
 }
 </script>
 
-<style lang="less">
+<style rel="stylesheet/scss"  lang="scss" scoped>
+@import "./leftArea.scss";
 </style>

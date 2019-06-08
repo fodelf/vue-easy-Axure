@@ -1,25 +1,62 @@
+<!--
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-07 08:30:25
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-07 18:35:25
+ -->
 <template>
-  <div>
-    <div style=" float:left;">
-      <label>上</label>
-      <input v-model="top"
-             @change="changeTop()">
-    </div>
-    <div style=" float:left;">
-      <label>左</label>
-      <input v-model="left"
-             @change="changeleft()">
-    </div>
-    <div style=" float:left;">
-      <label>高</label>
-      <input v-model="height"
-             @change="changeHeight()">
-    </div>
-    <div style=" float:left;">
-      <label>宽</label>
-      <input v-model="width"
-             @change="changeWidth()">
-    </div>
+  <div class="headerArea">
+    <el-row>
+
+    </el-row>
+    <el-row :gutter="10">
+      <el-col :span="8"
+              :offset="16">
+        <div class="grid-content bg-purple">
+          <el-row>
+            <el-form :label-position="labelPosition"
+                     label-width="40px"
+                     :model="formLabelAlign">
+              <el-col :span="6">
+                <div class="">
+                  <el-form-item label="左：">
+                    <el-input v-model="left"
+                              @change="changeLeft()">
+                    </el-input>
+                  </el-form-item>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="">
+                  <el-form-item label="上：">
+                    <el-input v-model="top"
+                              @change="changeTop()"></el-input>
+                  </el-form-item>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="">
+                  <el-form-item label="宽：">
+                    <el-input v-model="width"
+                              @change="changeWidth()"></el-input>
+                  </el-form-item>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div class="">
+                  <el-form-item label="高：">
+                    <el-input v-model="height"
+                              @change="changeHeight()"></el-input>
+                  </el-form-item>
+                </div>
+              </el-col>
+            </el-form>
+          </el-row>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
@@ -28,10 +65,10 @@ export default {
 
   data () {
     return {
-      height: 0,
-      width: 0,
-      left: 0,
-      top: 0
+      height: '',
+      width: '',
+      left: '',
+      top: ''
     }
   },
   methods: {
@@ -98,6 +135,6 @@ export default {
   mounted () { }
 }
 </script>
-
-<style lang="less">
+<style rel="stylesheet/scss"  lang="scss" scoped>
+@import "./headerArea.scss";
 </style>
