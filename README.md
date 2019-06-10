@@ -4,7 +4,10 @@
 ```
 npm install
 ```
-
+## Project dll
+```
+npm run dll
+```
 ### Compiles and hot-reloads for development
 ```
 npm run serve
