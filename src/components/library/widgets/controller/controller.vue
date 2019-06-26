@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-14 23:33:19
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 20:22:59
+ * @LastEditTime: 2019-06-09 10:35:13
  -->
 <template>
   <div ref="controller"></div>
@@ -15,13 +15,22 @@ export default {
   data () {
     return {
       value: '',
-      functionName: ''
+      functionName: this.mes.functionName
+    }
+  },
+  props: {
+    mes: {
+      type: Object,
+      default: function () {
+        return {}
+      }
     }
   },
   methods: {
     changeValue (value) {
+      console.log('sssss')
       let message = {
-        'value': value,
+        'value': this.value,
         'functionName': this.functionName
       }
       this.$emit('changeValue', message)
@@ -32,6 +41,14 @@ export default {
   },
   mounted () {
 
+  },
+  watch: {
+    value () {
+      this.changeValue()
+    }
+  },
+  created () {
+    this.value = this.mes.defaultValue
   }
 }
 </script>

@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:30:30
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 23:14:23
+ * @LastEditTime: 2019-06-09 09:45:24
  -->
 <template>
   <div>
@@ -22,6 +22,7 @@
                      :key="childItem.controllerName"
                      :is="childItem.controllerType"
                      :mes="childItem"
+                     @changeValue=changeValue
                      ref='widget'></component>
         </el-form>
       </el-tab-pane>

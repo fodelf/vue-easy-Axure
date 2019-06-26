@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-06 08:54:53
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 21:19:55
+ * @LastEditTime: 2019-06-09 09:45:08
  -->
 <template>
   <div id="app"
@@ -59,6 +59,7 @@ export default {
       this.$refs.rightArea.changeWidgetType(mes)
     },
     changeValue (mes) {
+      console.log(mes)
       this.$refs.mainArea.changeValue(mes)
     }
   }

@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:30:25
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-07 18:35:25
+ * @LastEditTime: 2019-06-09 09:59:35
  -->
 <template>
   <div class="headerArea">
@@ -16,7 +16,7 @@
               :offset="16">
         <div class="grid-content bg-purple">
           <el-row>
-            <el-form :label-position="labelPosition"
+            <!-- <el-form :label-position="labelPosition"
                      label-width="40px"
                      :model="formLabelAlign">
               <el-col :span="6">
@@ -52,7 +52,7 @@
                   </el-form-item>
                 </div>
               </el-col>
-            </el-form>
+            </el-form> -->
           </el-row>
         </div>
       </el-col>

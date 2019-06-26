@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-08 12:43:26
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-06-11 11:12:49
+ */
 
 export function uuid (len, radix) {
   var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')

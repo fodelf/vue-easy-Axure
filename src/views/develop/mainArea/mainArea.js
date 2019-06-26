@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 19:58:27
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 21:21:01
+ * @LastEditTime: 2019-06-09 09:40:59
  */
 
 import heading from '@/components/library/widgets/views/heading/heading.vue'
@@ -29,6 +29,7 @@ export default {
      * @return {type}:
      */
     changeValue (mes) {
+      console.log('mian')
       let index = this.cache[this.selectId]
       let selectWidget = this.$refs.widget[index]
       selectWidget[mes.functionName](mes.value)

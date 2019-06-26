@@ -1,5 +1,17 @@
+<!--
+ * @Description: 
+ * @Author: 吴文周
+ * @Github: https://github.com/fodelf
+ * @Date: 2019-05-05 09:37:00
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-05-05 09:37:00
+ -->
 # vue-easy-axure
 
+## Project setup
+```
+npm install
+```
 ## Project setup
 ```
 npm install

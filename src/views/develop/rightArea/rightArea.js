@@ -4,7 +4,7 @@
  * @Github: https://github.com/fodelf
  * @Date: 2019-05-07 08:32:19
  * @LastEditors: 吴文周
- * @LastEditTime: 2019-06-08 23:13:33
+ * @LastEditTime: 2019-06-09 09:44:03
  */
 
 //  读取配置文件
@@ -37,7 +37,12 @@ export default {
     changeWidgetType (mes) {
       this.configTabs = configModules[mes]['attributes']
       console.log(this.configTabs)
+    },
+    changeValue (message) {
+      console.log('right')
+      this.$emit('changeValue', message)
     }
+
   },
   created () {
     this.changeWidgetType('mainArea')
